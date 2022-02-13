@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <p class="paragraph title">This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+
+    <script>
+      const p = document.querySelector("p");
+      console.log(p);
+
+      const textNode = document.createTextNode("end of paragraph");
+      p.appendChild(textNode);
+
+      // p.append("<span>test test</span>");
+
+      // const span = document.createElement("span");
+      // span.innerHTML = "<span>222</span>";
+      // p.append(span);
+
+      p.style.color = "red";
+
+      document.body.style.backgroundColor = "pink";
+
+      // p.remove();
+      // p.removeChild(span);
+
+      for (let i = 0; i < 5; i++) {
+        const span = document.createElement("span");
+        span.innerText = i;
+        p.appendChild(span);
+      }
+
+      p.setAttribute("id", "arst");
+      p.classList.add("test");
+      p.classList.remove("title");
+
+      p.removeAttribute("id");
+    </script>
+  </body>
+</html>

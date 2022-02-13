@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // var, let, const
+      var a = 10; // number
+      let b = "55"; // string
+      const c = true; // boolean
+
+      const n = 100n; // bigint
+
+      var d = null; // null type
+      var e = undefined; // undefined type
+      var f; // f is undefined
+
+      var o = {
+        name: "something",
+        age: 99,
+        birthday: {
+          day: 20,
+          month: 2,
+          year: 1999,
+        },
+      }; // object type
+
+      console.log(o.birthday.month);
+
+      var arr = [1, "arst", true, { age: 20 }];
+      console.log(arr[3].age);
+
+      // type conversion
+      var str = "999";
+      console.log(str);
+      str = Number(str);
+      console.log(str);
+
+      str = String(str);
+      console.log(str);
+
+      var someNumber = 55;
+      console.log(someNumber);
+      console.log(someNumber.toString());
+
+      console.log(parseFloat(str));
+      console.log(parseFloat("34abc"));
+
+      console.log(Boolean(1));
+      console.log(Boolean(0));
+      console.log(Boolean(""));
+      console.log(Boolean("0"));
+      console.log(Boolean("11"));
+      console.log(Boolean(null));
+      console.log(Boolean(undefined));
+
+      // if (a && b && c || d) {}
+      // else if (arst) {}
+      // else {}
+
+      // while() {}
+
+      for (let i = 0; i < 5; i++) {
+        console.log(i);
+      }
+
+      var z = null;
+      var x = 10;
+      var final = z ?? x;
+
+      console.log(final);
+
+      console.log(`1 + 2 = ${1 + 2}`);
+      console.log("1 + 2 = ${1 + 2}");
+    </script>
+  </body>
+</html>

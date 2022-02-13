@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // named function
+      function add(a, b) {
+        console.log(a + b);
+        return a + b;
+      }
+
+      const sum = add(2, 3);
+      console.log(sum);
+
+      // anonymous function
+      const double = function (number) {
+        console.log(number * 2);
+      };
+
+      double(3);
+
+      // immediately invoked function
+      (function setup() {
+        for (let i = 0; i < 10; i++) {
+          console.log(`setup ${i}`);
+        }
+      })();
+
+      // arrow function
+      const drink = (something) => {
+        console.log("you drink " + something);
+      };
+
+      drink("coffee");
+
+      const double2 = (number) => number * 2;
+      const n2 = double2(5);
+      console.log(n2);
+
+      const getUser = () => ({
+        name: "Alice",
+        age: 25,
+      });
+
+      const alice = getUser();
+      console.log(alice);
+
+      // generator function
+      function* increment() {
+        let i = 0;
+        while (true) {
+          yield i;
+          i++;
+        }
+      }
+
+      const inc = increment();
+      console.log(inc.next().value);
+      console.log(inc.next().value);
+      console.log(inc.next().value);
+      console.log(inc.next().value);
+
+      function* testGenerator() {
+        yield 1;
+        console.log("pass 1");
+        yield 2;
+      }
+
+      const tg = testGenerator();
+      const next = tg.next();
+      console.log(next.done);
+      console.log(next.value);
+      const next2 = tg.next();
+      console.log(next2.done);
+      console.log(next2.value);
+      console.log(tg.next().done);
+
+      // callback function
+      function getData(sum, callback) {
+        let total = 0;
+        for (let i = 0; i < sum; i++) {
+          total += i;
+        }
+        callback(total);
+      }
+
+      getData(5, (total) => {
+        console.log("total: " + total);
+      });
+
+      // closure function
+      function makeMultiplier(x) {
+        return function (y) {
+          return x * y;
+        };
+      }
+
+      const m5 = makeMultiplier(5);
+      const m10 = makeMultiplier(10);
+
+      console.log("m5: " + m5(15));
+      console.log("m10: " + m10(24));
+
+      // difference between arrow func & normal func
+      const diff = {
+        cash: 1000,
+        getCash: function () {
+          return this;
+        },
+        getCash2: () => {
+          return this;
+        },
+      };
+
+      console.log(diff.getCash());
+      console.log(diff.getCash2());
+    </script>
+  </body>
+</html>
