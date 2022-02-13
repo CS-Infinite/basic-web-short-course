@@ -1,0 +1,35 @@
+<script>
+  let number = 0;
+
+  function wait() {
+    return new Promise((resolve) => setTimeout(resolve, Math.random() * 5));
+  }
+
+  async function increment1() {
+    for (let i = 0; i < 2; i++) {
+      await wait();
+      let tmpNumber = number;
+      console.log("inc 1: tmp = " + tmpNumber);
+      tmpNumber += 1;
+      await wait();
+      number = tmpNumber;
+      console.log("inc 1: set = " + number);
+    }
+  }
+
+  async function increment2() {
+    for (let i = 0; i < 2; i++) {
+      await wait();
+      let tmpNumber = number;
+      console.log("inc 2: tmp = " + tmpNumber);
+      tmpNumber += 2;
+      await wait();
+      number = tmpNumber;
+      console.log("inc 2: set = " + number);
+    }
+  }
+
+  Promise.all([increment1(), increment2()]).then(() => {
+    console.log(number);
+  });
+</script>

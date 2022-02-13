@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .box {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      let currentBox = null;
+      let diffX = 0;
+      let diffY = 0;
+
+      document.addEventListener("mouseup", () => {
+        currentBox = null;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (currentBox) {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+
+          currentBox.style.left = mouseX - diffX + "px";
+          currentBox.style.top = mouseY - diffY + "px";
+        }
+      });
+
+      boxes.forEach((element) => {
+        element.addEventListener("mousedown", (e) => {
+          diffX = e.clientX - element.offsetLeft;
+          diffY = e.clientY - element.offsetTop;
+
+          currentBox = element;
+        });
+      });
+    </script>
+  </body>
+</html>
